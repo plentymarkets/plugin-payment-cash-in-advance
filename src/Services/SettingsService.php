@@ -47,7 +47,7 @@ class SettingsService
     {
         $plentyId = $this->app->getPlentyId();
 
-        if(empty($loadedSettings))
+        if(empty($this->loadedSettings))
         {
             $this->loadedSettings = $this->getSettingsForPlentyId($plentyId, $lang);
         }
