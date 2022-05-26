@@ -1,5 +1,10 @@
 # Release Notes für Vorkasse
 
+## 3.0.7
+
+### Behoben
+- Aktualisierungen beim Abrufen von Bankverbindungsdaten.
+
 ## 3.0.6
 
 ### Behoben

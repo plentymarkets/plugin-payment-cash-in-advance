@@ -1,5 +1,10 @@
 # Release Notes for Cash in advance
 
+## 3.0.7
+
+### Fixed
+- Updates on getting the bank details data.
+
 ## 3.0.6
 
 ### Fixed
