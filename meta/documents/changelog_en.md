@@ -1,5 +1,11 @@
 # Release Notes for Cash in advance
 
+## 3.0.8
+
+### Fixed
+- Designated use and bank data were always displayed on the order confirmation, although not activated in the assistant. This has been fixed.
+- In the assistant, the settings are now saved correctly.
+
 ## 3.0.7
 
 ### Fixed

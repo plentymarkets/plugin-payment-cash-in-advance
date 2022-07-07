@@ -1,5 +1,11 @@
 # Release Notes für Vorkasse
 
+## 3.0.8
+
+### Behoben
+- Verwendungszweck und Bankdaten wurden immer auf der Bestellbestätigung angezeigt, obwohl im Assistenten nicht aktiviert. Dies wurde behoben.
+- Im Assistenten werden die Einstellungen nun korrekt gespeichert.
+
 ## 3.0.7
 
 ### Behoben
