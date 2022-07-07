@@ -73,31 +73,23 @@ class SettingsService
     {
         $lang = $this->checkLanguage($lang);
 
-        /** @var Settings $settings */
         $settings = $this->loadClientSettings($plentyId, $lang);
-
         $shippingSettings = $this->getShippingCountriesByPlentyId($plentyId);
 
-        if($convertToArray && (count($settings) || count($shippingSettings)))
-        {
+        if($convertToArray && (count($settings) || count($shippingSettings))) {
             $outputArray = array();
 
             $availableSettings = Settings::AVAILABLE_SETTINGS;
 
-            /** @var Settings $setting */
-            foreach ($settings as $setting)
-            {
-                if (array_key_exists($setting->name, $availableSettings))
-                {
+            foreach ($settings as $setting) {
+                if (array_key_exists($setting->name, $availableSettings)) {
                     $outputArray[$setting->name] = $setting->value;
                 }
             }
 
             $outputArray['plentyId']    = $settings[0]->plentyId;
             $outputArray['lang']        = $settings[count($settings) - 1]->lang;
-
             $outputArray = $this->convertSettingsToCorrectFormat($outputArray,$availableSettings);
-
             $outputArray['shippingCountries'] = $shippingSettings;
 
             return $outputArray;
@@ -530,29 +522,6 @@ class SettingsService
             {
                 $convertedSettings[$setting] = $this->setType($settings[$setting], $type);
             }
-            /*else
-            {
-                if( is_string($settings[$setting]) && $settings[$setting] != "") //Check if the field is a string to convert it to array.
-                {
-                    $settingArray = explode('-/-', $settings[$setting]);
-                    $arrayType    = array();
-                    for($x = 0; $x < count($settingArray); $x++){ $arrayType[] = $type[0]; }
-                    $convertedSettings[$setting] = $this->convertSettingsToCorrectFormat($settingArray, $arrayType);
-                }
-                else
-                {
-                    if(!empty($settings[$setting]) && is_array($settings[$setting]))
-                    {
-                        $arrayType    = array();
-                        for($x = 0; $x < count($settings[$setting]); $x++){ $arrayType[] = $type[0]; }
-                        $convertedSettings[$setting] = $this->convertSettingsToCorrectFormat($settings[$setting], $arrayType);
-                    }
-                    else
-                    {
-                        $convertedSettings[$setting] = array();
-                    }
-                }
-            }*/
         }
 
         return $convertedSettings;
@@ -570,12 +539,16 @@ class SettingsService
     {
         switch($type)
         {
-            case "boolean": return $value == 0 ? false : true;
-            case "bool":    return $value == 0 ? false : true;
-            case "integer": return (int)$value;
-            case "int":     return (int)$value;
-            case "float":   return (float)$value;
-            case "string":  return (string)$value;
+            case "boolean":
+            case "bool":
+                return !((!strlen($value) || $value == 0));
+            case "integer":
+            case "int":
+                return (int)$value;
+            case "float":
+                return (float)$value;
+            case "string":
+                return (string)$value;
         }
     }
 
