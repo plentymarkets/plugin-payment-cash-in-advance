@@ -1,5 +1,10 @@
 # Release Notes für Vorkasse
 
+## 3.0.9 (2023-03-09)
+
+### Behoben
+- Link zur Handbuchseite wurde aktualisiert
+
 ## 3.0.8
 
 ### Behoben

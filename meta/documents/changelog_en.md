@@ -1,5 +1,10 @@
 # Release Notes for Cash in advance
 
+## 3.0.9 (2023-03-09)
+
+### Fixed
+- Link to the manual page has been updated
+
 ## 3.0.8
 
 ### Fixed
